@@ -1,0 +1,180 @@
+@use "../global" as *;
+
+.bold {font-weight: bold;}
+.tac{text-align: center;}
+.tar{text-align: right;}
+.tal{text-align: left;}
+.m0a {margin: 0 auto;}
+.mb0 {margin-bottom: 0!important;}
+.mt0 {margin-top: 0!important;}
+.red {color: red;}
+.link {
+  color: $link-color;
+  border-bottom: 1px solid $link-color;
+  @include mq(max_sp-side) {
+    border-bottom: 1px solid $link-color;
+  }
+}
+.border {
+  border-top: 1px solid rgba($wh,0.4);
+  &--top {border-top: 1px solid rgba($wh,0.4);}
+  &--bottom {border-bottom: 1px solid rgba($wh,0.4);}
+  &--right {border-right: 1px solid rgba($wh,0.4);}
+  &--left {border-left: 1px solid rgba($wh,0.4);}
+}
+.youtube {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.tag {
+  @include tracking(200);
+  font-size: 1.4rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid rgba($wh,.2);
+  background-color:rgba($wh,.15);
+  @include mq(tab){@include fz_vw_1024(14);}
+  @include mq(sp-side){ @include fz_vw_896(16); }
+  @include mq(sp){ @include fz_vw_480(16); }
+}
+.date {
+  display: block;
+  span {
+    @include title-font;
+    font-size: 80%;
+    display: inline-block;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    background-color: rgba($wh,.9);
+    filter: drop-shadow(0 0 5px rgba($wh,0.5));
+    color: $theme-color;
+    @include mq(max_tab){
+      font-size: 75%;
+      padding: 0.1rem 0.5rem;
+    }
+  }
+  &--type2{
+    line-height: 1.2;
+    margin-top: 0.5rem;
+    span {
+      @include title-font;
+      font-size: 1.2rem;
+      background-color: transparent;
+      color: $wh;
+      border-radius: 0;
+      padding: 0;
+      @include mq(tab){@include fz_vw_1024(12);}
+      @include mq(sp-side){@include fz_vw_896(12);}
+      @include mq(sp){@include fz_vw_480(12);}
+    }
+  } 
+}
+.new-icon {
+  color: red;
+  display: block;
+  border-bottom: 2px;
+  margin-bottom: 1rem;
+  @include mq(max_tab){
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+}
+.list-style {
+  &--notes li {
+    margin-left: 2rem;
+    list-style-type: "※";
+    &:last-child {margin-bottom: 2rem;}
+  }
+  &--disc li {
+    margin-left: 2rem;
+    list-style-type: disc;
+    &:last-child {margin-bottom: 2rem;}
+  }
+  &--num li {
+    margin-left: 2rem;
+    list-style-type: decimal;
+    &:last-child {margin-bottom: 2rem;}
+  }
+}
+
+.flow {
+  &__unit {
+    display: flex;
+    border-bottom: 1px solid rgba($wh,0.2);
+    padding: 1rem 0;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  &--title {
+    margin-right: 2rem;
+    .tag {margin: 0;}
+  }
+  @include mq(sp) {
+    &__unit {
+      flex-direction:column;
+    }
+    &--content {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  &.jc-center {
+    justify-content: center;
+    gap: 1rem;
+  }
+  &.ai-start {
+    align-items: flex-start;
+  }
+  &.gap1 { gap: 1rem;}
+  &.gap2 { gap: 2rem;}
+  &.gap3 { gap: 3rem;}
+  &.gap4 { gap: 4rem;}
+  &.gap5 { gap: 5rem;}
+  @include mq(max_sp-side){
+    &.sp-flex--column {
+      flex-direction: column;
+    }
+    &.sp-gap1 { gap: 1rem!important;}
+    &.sp-gap2 { gap: 2rem!important;}
+    &.sp-gap3 { gap: 3rem!important;}
+    &.sp-gap4 { gap: 4rem!important;}
+    &.sp-gap5 { gap: 5rem!important;}
+  }
+}
+
+.small {
+  font-size: 1.4rem;
+  display: inline-block;
+  @include mq(tab){ @include fz_vw_1024(14); }
+	@include mq(sp-side){ @include fz_vw_896(14); }
+	@include mq(sp){ @include fz_vw_480(14); }
+}
+
+.dl {
+  &--normal {
+    display: flex;
+    gap: 0.5rem;
+    dt {
+      flex-shrink: 0;
+      &::after {
+        content: ":";
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

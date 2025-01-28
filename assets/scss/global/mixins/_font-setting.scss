@@ -1,0 +1,42 @@
+@use "../variables" as *;
+@use "mediaquery" as m;
+ 
+//フォント-------------------------------
+@mixin base-font {
+	font-family: shippori-antique,serif;
+	font-style: normal;
+	color: $font-color;
+  font-display: swap;
+}
+
+@mixin title-font {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: $regular;
+  font-display: swap;
+}
+
+//レスポンシシブ対応-------------------------------
+/* vp:480px */
+@function get_vw_480($size, $viewport:480){
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+@mixin fz_vw_480($font_size:16){
+  font-size: get_vw_480($font_size);
+}
+/* vp:896px */
+@function get_vw_896($size, $viewport:896){
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+@mixin fz_vw_896($font_size:16){
+ font-size: get_vw_896($font_size);
+}
+/* vp:1024px */
+@function get_vw_1024($size, $viewport:1024){
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+@mixin fz_vw_1024($font_size:16){
+	font-size: get_vw_1024($font_size);
+}

@@ -1,0 +1,54 @@
+@use "../global" as *;
+
+html {
+	font-size: 62.5%; /*16px x 0.625 = 10px(=1rem) */ 
+  font-feature-settings: "palt";
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+	@include transition05;
+	@include base-font;
+	display: none;
+  background-color: $bg-color;
+	letter-spacing: .15rem;
+	line-height: 1.8;
+	display: flex;
+ 	flex-flow: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+	font-size: 1.6rem;
+	@include mq(tab){@include fz_vw_1024(16);}
+	@include mq(sp-side){@include fz_vw_896(16);}
+	@include mq(sp){ @include fz_vw_480(16);}
+	footer {margin-top: auto;}
+}
+img { max-width: 100%;}
+a {
+	color: $font-color;
+  -webkit-tap-highlight-color: transparent;
+	&:hover,&:active {
+		@include transition05;
+		svg {
+			@include transition05;
+		}
+	}
+}
+
+input:disabled {
+	@include transition05;
+	pointer-events: none;
+	opacity: 0.2;
+}
+
+::selection {
+	background: $wh;
+  color: $theme-color;
+}
+//Firefox
+::-moz-selection {
+	background: $wh;
+  color: $theme-color;
+}

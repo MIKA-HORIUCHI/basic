@@ -1,0 +1,8 @@
+@use "../global" as *;
+
+//footer
+.footer {
+  @include title-font;
+  padding: 1rem 0;
+  text-align: center;
+}

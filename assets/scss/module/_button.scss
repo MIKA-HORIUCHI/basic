@@ -1,0 +1,15 @@
+@use "../global" as *;
+
+.btn {
+  display: block;
+  &--text {
+
+  }
+  &--normal {
+   
+  }
+
+  @include mq(tab){ @include fz_vw_1024(18); }
+	@include mq(sp-side){ @include fz_vw_896(18); }
+	@include mq(sp){ @include fz_vw_480(18); }
+}

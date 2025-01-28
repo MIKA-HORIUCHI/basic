@@ -1,0 +1,191 @@
+@use "../global" as *;
+
+.js-modal-video {
+  position: relative;  
+  .play-icon {
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 17px;
+      height: 17px;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: -4px;
+      left: 0;
+      border-style: solid;
+      border-width: 8px 0 8px 17px;
+      border-color: transparent transparent transparent $wh;
+      z-index: 2;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      cursor: pointer;
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50vh;
+      background-color: rgba($blk,50%);
+      filter: drop-shadow(0 0 15px $sub-color);
+      box-shadow: 0 0 15px $sub-color;
+      border: 1px solid $wh;
+      z-index: 1;
+    }
+  }
+  .thumbg {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-top: 56.25%;
+    //aspect-ratio: 16 / 9; 
+    cursor: pointer;
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:100%;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  } 
+  @include mq(max_tab){
+    .play-icon {
+      &::before {
+        right: -2px;
+        width: 10px;
+        height: 10px;
+        border-width: 5px 0 5px 10px;
+      }
+      &::after {
+        border: 1px solid $wh;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+.modaal {
+  &-close, &-gallery-control {
+    &:before,&:after {
+      border-radius: 0!important;
+      width: 2px!important;
+    }
+    &:hover {
+      background: transparent!important;
+      &:before,&:after {
+        background:$theme-color!important;
+        mix-blend-mode: lighten!important;
+      }
+    }
+  }
+  &-gallery {
+    &-prev {
+      &:before { margin: 6px 0 0!important;}
+      &:after { margin: -6px 0 0!important;}
+    }
+    &-next {
+      &:before { margin: -6px 0 0!important;}
+      &:after { margin: 6px 0 0!important;}
+    }
+  }
+  @include mq(max_tab){
+    &--img {
+      pointer-events: none;
+    }
+  }
+}
+
+//MicroModal
+.modal {
+  display: none;
+  position: relative;
+  z-index: 10005;
+  //pointer-events: none;
+  &.is-open {
+    display: block;
+  }
+  &__overlay {
+    position: fixed;
+    background-color: rgba($blk, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10005;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  &__wrapper {
+    overflow-y: auto;
+    height: -webkit-fill-available;
+    cursor: pointer;
+  }
+  &__inner {
+    width: $width-base;
+    margin: 15rem auto;
+    cursor: default;
+    &::-webkit-scrollbar	{
+      &-track{background-color: transparent;}
+      &-thumb{background-color: transparent;}
+    }
+  }
+  section {
+    margin-top: 3rem; 
+  }
+  .title {
+    @include title-font;
+    font-size: 4rem;
+    @include mq(tab){ @include fz_vw_1024(40); }
+    @include mq(sp-side){ @include fz_vw_896(40); }
+    @include mq(sp){ @include fz_vw_480(40); }
+    .small {
+      font-size: 2.5rem;
+      @include mq(tab){ @include fz_vw_1024(25); }
+      @include mq(sp-side){ @include fz_vw_896(25); }
+      @include mq(sp){ @include fz_vw_480(25); }
+    }
+  }
+  .text {
+    @include title-font;
+  }
+  .link {
+    @include title-font;
+    font-size: 1.8rem;
+    color: $wh;
+    border-bottom: none;
+    margin: 5rem;
+    @include mq(tab){ @include fz_vw_1024(18); }
+    @include mq(sp-side){ @include fz_vw_896(18); }
+    @include mq(sp){ @include fz_vw_480(18); }
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  @keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+  &[aria-hidden='false'] { animation: fadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);}
+  &[aria-hidden='true'] {animation: fadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);}
+  @include mq(max_tab) {
+    &__inner {
+      width: 90%;
+      margin: 5rem auto;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "../global" as *;
+
+.accordion {
+  margin-bottom: 7px;
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+    background-color: $wh;
+    border: 1px solid $blk;
+    font-weight: $bold;
+    cursor: pointer;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    &::after {
+      content: '';
+      transform: translateY(-25%) rotate(45deg);
+      width: 10px;
+      height: 10px;
+      margin-left: 10px;
+      border-bottom: 2px solid $blk;
+      border-right: 2px solid  $blk;
+      transition: transform .3s;
+    }
+  }
+  &__content {
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    padding: 1rem;
+    transition: transform .5s, opacity .5s;
+    background-color: transparent;
+    border: 1px solid $blk;
+    border-top: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  &[open] {
+    .accordion__title::after {
+      transform: rotate(225deg);
+    }
+    .accordion__content {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+
+
+
+
+
+

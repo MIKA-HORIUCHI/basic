@@ -1,0 +1,99 @@
+<?php 
+  $path = "../"; 
+  $cateTitle = "Contact";
+  $line = "｜";
+?>
+<?php include($path."setting.php") ?>
+<!doctype html>
+<html lang="ja">
+<head>
+<?php include($path."head.php") ?>
+<body id="contact">
+  <?php include($path."header.php") ?>
+	<div class="wrap">
+		<main class="contact">
+      <section class="inner">
+        <h2 class="title--section"><?php echo $cateTitle;?></h2> 
+        <?php
+          //フォームからのデータを受け取る
+          if ($_SERVER["REQUEST_METHOD"] == "GET") {
+              foreach($_GET as $k => $v){
+                  //php.ini「magic_quotes_gpc=On」のときはエスケープ解除
+                  if (get_magic_quotes_gpc()) {
+                      $v = stripslashes($v);
+                  }
+                  $v = htmlspecialchars($v);
+                  $v = str_replace(",","，",$v);
+                  //$v = str_replace(array("\r\n","\n","\r"),"<br />",$v);
+
+                  //$$k = $v;
+                  $_GET[$k] = $v;
+              }
+          }
+          else {
+              exit();
+          }
+          if(isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $id = HtmlSpecialChars($id);
+            //受け取ったデータをチェックする
+            $ErrFlg = 0;
+
+            if ($id == "error") {
+                echo "<p class=\"tac bold\"><br />";
+                echo "<span class=\"theme-color\">ERROR</span><br />記入もれがございます。<br /><br />";
+                echo "</p>";
+                $ErrFlg = 1;
+            }elseif ($id == "ok"){
+              echo "<p class=\"tac bold\"><span class=\"theme-color\">THANK YOU</span><br />メッセージが送信されました。<br /><br /></p>";
+            }
+          }
+        ?>
+        <form class="form" id="form" name="form" action="check.php" method="post">
+          <input type="hidden" name="subjectname" value="サイトタイトル Official Website Contact">
+          <input type="hidden" name="secretword" value="key">
+          <div class="form__lists">
+            <label class="title" for="name">Name</label>
+            <input id="name" type="text" name="name" class="content" required>
+          </div>
+          <div class="form__lists">
+            <label class="title" for="mail">Mail</label>
+            <input id="mail" type="email" name="mail" class="content" required>
+          </div>
+          <div class="form__lists">
+            <label class="title" for="title">Title</label>
+            <input id="title" type="text" name="title" class="content" required>
+          </div>
+          <div class="form__lists">
+            <label class="title" for="message">Message</label>
+            <textarea id="message" class="content textarea" name="message" required></textarea>
+          </div>
+          <div class="form__lists tac">
+            <input type="checkbox" id="kiyakuchecked" class="checkbox">
+            <label for="kiyakuchecked"><a href="http://bzone.co.jp/privacypolicy.html" target="_blank" rel="noopener" class="link">プライバシーポリシー</a>に同意して送信する</label>
+          </div>
+          <div class="btn tac"><input type="submit" name="submit" id="submit" value="Send" class="btn--normal" disabled="disabled"></div>
+        </form>
+      </section>
+	  </main>
+	  <?php include($path."footer.php") ?>
+  </div>
+<script>
+$(function(){
+	$('#kiyakuchecked').on('change', function(){
+		if($(this).is(':checked')) {
+			//チェックが入ったら、送信ボタンを押せる
+			$('#submit').prop('disabled', false);
+			$('#submit').addClass("checked");
+			$('#kiyakuchecked').addClass("checked");
+		} else {
+			//チェックが入っていなかったら、送信ボタンを押せない
+			$('#submit').prop('disabled', true);
+			$('#submit').removeClass("checked");
+			$('#kiyakuchecked').removeClass("checked");
+		}
+	});
+});
+</script>
+</body>
+</html>

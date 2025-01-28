@@ -1,0 +1,37 @@
+<?php 
+  $path = "../"; 
+  $cateTitle = "News";
+  $line = "｜";
+
+  $title = "タイトル名";
+  $upDate = "2023.00.00";
+?>
+<?php include($path."setting.php") ?>
+<!doctype html>
+<html lang="ja">
+<head>
+  <?php include($path."head.php") ?>
+  <script>
+  $twHash = "ハッシュタグ名,ハッシュタグ名２";
+  </script>
+  <meta name="twitter:image" content="サイトURL/assets/img/news/20230000.jpg">
+</head>
+<body id="news">
+  <?php include($path."header.php") ?>
+	<div class="wrap">
+    <div class="flame"></div>
+		<main>
+      <h2 class="title--section tac"><span data-text="<?php echo $cateTitle;?>"><?php echo $cateTitle;?></span></h2>
+      <article class="article inner">
+        <time class="article__time"><?php echo $upDate; ?></time>
+        <h3 class="title--article"><?php echo $title; ?></h3>
+        <div class="article__text">
+          <p>テキスト</p>
+        </div>
+        <?php include($path."assets/php/share-btn.php") ?>
+      </article>
+	  </main>
+	  <?php include($path."footer.php") ?>
+  </div>
+</body>
+</html>

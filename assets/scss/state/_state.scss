@@ -1,0 +1,13 @@
+@use "../global" as *;
+.sp-non {
+	display: block;
+	@include mq(max_sp-side){display: none;}
+}
+.tabpc-non {
+	display: block;
+	@include mq(min_tab){display: none;}
+}
+.pc-non {
+	display: none;
+	@include mq(max_tab){display: block;}
+}

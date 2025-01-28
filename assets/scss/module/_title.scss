@@ -1,0 +1,10 @@
+@use "../global" as *;
+
+.title {
+  &--article {
+    font-size: 1.6rem;
+    @include mq(tab){@include fz_vw_1024(16);}
+    @include mq(sp-side){ @include fz_vw_896(16); }
+    @include mq(sp){ @include fz_vw_480(16); }
+  }
+}

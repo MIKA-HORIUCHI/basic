@@ -1,0 +1,43 @@
+@use "../global" as *;
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  &__title {
+    @include transition05;
+    flex: 1 1;
+    order: -1;
+    width: 50%;
+    padding: .5em 1em .5em;
+    color: #999;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      opacity: .8;
+    }
+    &:has(:checked) {
+      @include transition05;
+      font-weight: $exbold;
+      padding: 1em;
+      color: $blk
+    }
+  }
+  &__content {
+    display: none;
+    width: 100%;
+    padding: 1.5em 1em;
+    &.mixch { background-color: rgba($theme-color,0.1);}
+    &.web { background-color: rgba($theme-color,0.1);}
+  }
+  &__title:has(:checked) + &__content {
+    display: block;
+  }
+}
+
+
+
+
+
+

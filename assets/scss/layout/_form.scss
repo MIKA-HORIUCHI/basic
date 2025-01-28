@@ -1,0 +1,205 @@
+@use "../global" as *;
+
+
+.form {
+  width: min(90%,600px);
+  margin: 3rem auto;
+  &__item {
+    margin-bottom: 1.5rem;
+  }
+  &__title {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: .9em;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+.upload {
+  padding: 2rem 0;
+  &-item {
+    margin-bottom: 2rem;
+    &:first-of-type {
+      margin-top: 2rem;
+    }
+    .item {
+      font-size: 1.8rem;
+      @include mq(tab){@include fz_vw_1024(18);}
+      @include mq(sp-side){ @include fz_vw_896(18); }
+      @include mq(sp){ @include fz_vw_480(18); }
+    }
+    
+  }
+  &-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    input {
+      margin-left: 2rem;
+      &[name="name"] {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -webkit-appearance: none;
+        max-width: 100%;
+        color: #fff;
+        padding: .4rem;
+        background: rgba(255, 255, 255, .1);
+        border: 1px solid rgba(255, 255, 255, .1);
+      }
+    }
+  }
+  @include mq(max_tab){
+    &-item {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+//textbox
+.textbox {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: $wh;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  font-size: 1em;
+  line-height: 1.5;
+  &.short {
+    width: 100%;
+    max-width: 230px;
+  }
+  &::placeholder {
+    color: #999;
+  }
+}
+
+//textarea
+.textarea {
+  width: 100%;
+  min-height: 5em;
+  padding: 8px 10px;
+  background-color: $wh;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  font-size: 1em;
+  &::placeholder {
+    color: #999;
+  }
+}
+
+//selectbox
+.selectbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background-color: $wh;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    pointer-events: none;
+  }
+}
+
+//radio button
+.radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3em 2em;
+  border: none;
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    cursor: pointer;
+    &::before,
+    &::after {
+      border-radius: 50%;
+      content: '';
+    }
+    &::before {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #dee5eb;
+      box-sizing: border-box;
+    }
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 9px;
+      transform: translate(-50%, -50%);
+      width: 9px;
+      height: 9px;
+      background-color: #dee5eb;
+    }
+    &:has(:checked)::after {
+      background-color: $theme-color;
+      animation: anim-radio .3s linear;
+    }
+  }
+  @keyframes anim-radio {
+    0% {
+        box-shadow: 0 0 0 1px transparent;
+    }
+    50% {
+        box-shadow: 0 0 0 10px #2589d033;
+    }
+    100% {
+        box-shadow: 0 0 0 10px transparent;
+    }
+  }
+}
+
+//checkbox
+.checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5em 2em;
+  border: none;
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0 .5em;
+    position: relative;
+    cursor: pointer;
+    &::before {
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+      border: 2px solid #d6dde3;
+      content: '';
+    }
+    &:has(:checked)::after {
+      position: absolute;
+      top: 5px;
+      left: 7px;
+      transform: rotate(45deg);
+      width: 5px;
+      height: 10px;
+      border: solid #2589d0;
+      border-width: 0 3px 3px 0;
+      content: '';
+    }
+  }
+}

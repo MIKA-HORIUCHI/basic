@@ -1,0 +1,54 @@
+@use "../global" as *;
+
+//width
+@for $width from 1 through 20 {
+	.width-#{$width}{width: 5% * $width !important;}
+}
+//margin
+@for $margin from 1 through 20 {
+	.margin-#{$margin}{margin: 5px * $margin !important;}
+}
+@for $marginTop from 1 through 20 {
+	.marginTop-#{$marginTop}{margin-top: 5px * $marginTop !important;}
+}
+@for $marginBottom from 1 through 20 {
+	.marginBottom-#{$marginBottom}{margin-bottom: 5px * $marginBottom !important;}
+}
+//padding
+@for $padding from 1 through 20 {
+	.padding-#{$padding}{padding: 5px * $padding !important;}
+}
+@for $padding from 1 through 20 {
+	.paddingTop-#{$padding}{padding-top: 5px * $padding !important;}
+}
+@for $padding from 1 through 20 {
+	.paddingBottom-#{$padding}{padding-bottom: 5px * $padding !important;}
+}
+
+//SP-----------------------------------
+@include mq(max_sp-side) {
+	//width
+	@for $sp-width from 1 through 20 {
+		.sp_width-#{$sp-width}{width: 5% * $sp-width !important;}
+	}
+	//margin
+	@for $sp-margin from 1 through 20 {
+		.sp_margin-#{$sp-margin}{margin: 5px * $sp-margin !important;}
+	}
+	@for $sp-marginTop from 1 through 20 {
+		.sp_marginTop-#{$sp-marginTop}{margin-top: 5px * $sp-marginTop !important;}
+	}
+	@for $sp-marginBottom from 1 through 20 {
+		.sp_marginBottom-#{$sp-marginBottom}{margin-bottom: 5px * $sp-marginBottom !important;}
+	}
+	//padding
+	@for $sp-padding from 1 through 20 {
+		.sp_padding-#{$sp-padding}{padding: 5px * $sp-padding !important;}
+	}
+	@for $sp-padding from 1 through 20 {
+		.paddingTop-#{$sp-padding}{padding-top: 5px * $sp-padding !important;}
+	}
+	@for $sp-padding from 1 through 20 {
+		.paddingBottom-#{$sp-padding}{padding-bottom: 5px * $sp-padding !important;}
+	}
+}

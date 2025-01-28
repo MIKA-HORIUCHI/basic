@@ -1,0 +1,100 @@
+@use "../global" as *;
+.loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $blk;
+  z-index: 10000;
+  .logo {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+  }
+  &.animation {
+    animation: turnOn 2.25s linear;
+    animation-fill-mode: forwards;
+    .logo {
+      animation: 1s;
+      opacity: 0;
+    }
+    @keyframes turnOn {
+      0% {
+        transform: scale(1, 0.8) translate3d(0, 0, 0);
+        filter: brightness(30);
+        opacity: 1;
+      }
+      3.5% {
+        transform: scale(1, 0.8) translate3d(0, 100%, 0);
+      }
+      3.6% {
+        transform: scale(1, 0.8) translate3d(0, -100%, 0);
+      } 
+      9% {
+        transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+        filter: brightness(30);
+      }
+      11% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        filter: contrast(0) brightness(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1, 1) translate3d(0, 0, 0);
+        filter: contrast(1) brightness(1.1) saturate(1.1);
+        opacity: 0;
+      }
+    }
+  }
+  &--remove {
+    display: none;
+  }
+  &--normal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 15000;
+    background-color: $theme-color;
+    .loader {
+      --uib-size: 40px;
+      --uib-speed: 1.3s;
+      --uib-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      -webkit-transform: translateY(-50%) translateX(-50%);
+      width: var(--uib-size);
+      height: calc(var(--uib-size) * 0.27);
+      display: flex;
+      &__dot,
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        height: calc(var(--uib-size) * 0.18);
+        width: calc(var(--uib-size) * 0.18);
+        border-radius: 50%;
+        background-color: var(--uib-color);
+        transform: scale(0);
+      }
+      &::before {
+        animation: pulse var(--uib-speed) ease-in-out infinite;
+      }
+      &__dot {
+        animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.125) infinite both;
+        margin: 0 1rem;
+      }
+      &::after {
+        animation: pulse var(--uib-speed) ease-in-out calc(var(--uib-speed) * 0.25) infinite;
+      }
+      @keyframes pulse {
+        0%,100% {transform: scale(0);}
+        50% {transform: scale(1.5);}
+      }
+    }
+  }
+}

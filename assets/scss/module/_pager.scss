@@ -1,0 +1,17 @@
+@use "../global" as *;
+
+.pager {
+  @include title-font;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  li {
+    margin-right: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+  }
+  .current {
+    background-color: $wh;
+    color: $theme-color;
+  }
+}

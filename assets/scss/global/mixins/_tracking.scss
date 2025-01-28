@@ -1,0 +1,4 @@
+// トラッキング-------------------------------
+@mixin tracking($tracking) {
+  letter-spacing: calc($tracking / 1000 ) + em;
+}

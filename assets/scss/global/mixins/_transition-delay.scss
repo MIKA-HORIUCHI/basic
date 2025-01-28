@@ -1,0 +1,17 @@
+@use "../variables" as *;
+
+@mixin transitionDelay($quantity: 5, $speed: 0.15s, $reverse: false){
+  @if $reverse {
+    @for $i from 1 through $quantity {
+      &:nth-child(#{$i}){
+        transition-delay: ($quantity - $i) * $speed;
+      }
+    }
+  } @else {
+    @for $i from 1 through $quantity {
+      &:nth-child(#{$i}){
+        transition-delay: ($i - 1) * $speed;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+
+//width----------------------------------------
+$width-large: 80%;
+$width-base: 1500px; 
+$width-small: 750px;
+
+//color----------------------------------------
+$wh: #fff;
+$blk: #000;
+
+$theme-color: #DDFF00;
+$sub-color: #00FFFF;
+
+$font-color: #000;
+$bg-color: #F3F3F3;
+
+$link-color: $theme-color;
+
+//画像パス-------------------------------------
+$imgpath:"../../assets/img/";
+//background-image: url(#{$imgpath}---.jpg);
+
+//font-weight-------------------------------
+$thin: 100; 
+$exlight: 200; 
+$light: 300; 
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$exbold: 800;
+$black: 900;
+
+//メディアクエリ-----------------------------
+$breakpoints: (
+	sp: "screen and (max-width:480px)",
+	sp-side: "screen and (min-width:481px) and (max-width: 896px)",
+	tab: "screen and (min-width:897px) and (max-width: 1024px)",
+	pc-s: "screen and (min-width:1025px) and (max-width: 1200px)",
+	pc-m: "screen and (min-width:1201px) and (max-width: 1400px)",
+	pc-l: "screen and (min-width:1401px) and (max-width: 1600px)",
+	
+	max_sp-side: "screen and (max-width: 896px)",
+	max_tab: "screen and (max-width: 1024px)",
+  max_pc-s: "screen and (max-width:1200px)",
+  max_pc-m: "screen and (max-width:1400px)",
+  max_pc-l: "screen and (max-width:1600px)",
+	
+	min_sp-side: "screen and (min-width:481px) ",
+	min_tab: "screen and (min-width:897px) "
+);
