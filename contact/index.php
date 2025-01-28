@@ -1,6 +1,7 @@
 <?php
   error_reporting(0);
   $path = "../";
+  $title = "CONTACT";
 
   //CONTACT 修正の値
 	$name = $_POST["name"];
@@ -21,9 +22,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php 
-    $disp = "CONTACT";
-  ?>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <title><?php echo $title; ?></title>
   <?php include($path."inc/head.php");?>
