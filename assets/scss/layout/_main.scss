@@ -1,2 +1,21 @@
 @use "../global" as *;
 
+
+.logo {
+  text-align: center;
+  padding: 3rem 0;
+  font-weight: $medium;
+  font-size: 5rem;
+}
+
+.main-visual {
+  text-align: center;
+}
+
+.sns-list {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  padding-top: 3rem;
+  
+}
