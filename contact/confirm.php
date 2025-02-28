@@ -44,7 +44,7 @@
 		exit;
 	}
 
-	$secretKey = "6LdDDb0qAAAAANu2zVAX4JcsQMMobIQUgrGSCx4O";
+	$secretKey = "6LczecYqAAAAAHJ6F5V3L_D2g7PWegCwWixanYs3";
 	$resp = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}");
 	$resp_result = json_decode($resp,true);
 

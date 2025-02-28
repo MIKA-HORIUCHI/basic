@@ -11,17 +11,6 @@
   <?php 
     $disp = "CONTACT";
     include($path."inc/ogp.php");
-    //$config["title"] = "";    // title
-    //$config["type"] = "";     // type
-    //$config["image"] = ""; // image
-    //$config["url"] = "";      // url
-    $config["description"] = $disp; // description
-    fb_meta($config);
-
-    $config_tw["card"] = "summary";      // url
-    //$config_tw["image"] = ""; // image
-    //$config_tw["site"] = "@"; // description
-    tw_meta($config_tw);
   ?>
   <title><?php echo $title; ?></title>
   <?php include($path."inc/headlink.php");?>

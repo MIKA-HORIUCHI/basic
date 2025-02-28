@@ -25,6 +25,8 @@
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <title><?php echo $title; ?></title>
   <?php include($path."inc/head.php");?>
+  <head>
+</head>
 </head>
 <body id="contact">
   <?php // include($path."inc/loading.html");?>
@@ -152,7 +154,7 @@
             <textarea id="message" name="message" class="form__content textarea" required><?=$message?></textarea>
           </div>
           <div class="tac">
-            <div class="g-recaptcha mt-10" data-callback="clearcall" data-sitekey="6LdDDb0qAAAAALOnjG1Tg_2E6vvLhUNLHGN2KvU2"></div>
+            <div class="g-recaptcha mt-10" data-callback="clearcall" data-sitekey="6LczecYqAAAAAK39qVt5H1PnYpp-kgVG2pBWiXcz"></div>
           </div>
           <p class="tac mt-10"><button class="btn--more" type="submit" name="confirm" value="確認" disabled>確認</button></p>
         </form>
